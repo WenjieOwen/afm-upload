@@ -340,14 +340,6 @@
       </div>
 
       <div class="form-group">
-        <label for="draft-type">Draft type</label>
-        <select id="draft-type">
-          <option value="first_draft">First draft</option>
-          <option value="second_draft">Second draft</option>
-        </select>
-      </div>
-
-      <div class="form-group">
         <label>Video file</label>
         <div class="drop-zone" id="drop-zone">
           <input type="file" id="file-input" accept="video/*" required>
@@ -478,7 +470,6 @@ form.addEventListener('submit', async (e) => {
   alertError.classList.remove('visible');
 
   const handle = document.getElementById('handle').value.trim().replace(/^@/, '');
-  const draftType = document.getElementById('draft-type').value;
   const file = fileInput.files[0];
 
   if (!handle || !file) return;
@@ -491,7 +482,6 @@ form.addEventListener('submit', async (e) => {
   const formData = new FormData();
   formData.append('project_slug', slug);
   formData.append('handle', handle);
-  formData.append('draft_type', draftType);
   formData.append('file', file);
 
   try {
